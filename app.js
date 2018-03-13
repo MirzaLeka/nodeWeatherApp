@@ -1,27 +1,24 @@
 const request = require('request');
+const yargs = require('yargs');
+const geocode = require('./geocode/geocode');
 
-
-var adr = "ustikolina";
-var encoded = encodeURIComponent(adr);
-
-request({
-  url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encoded}`,
-  json: true
-}, (error, response, body) => {
-
-if (error) {
-console.log("Unable to connect to google service");
+const argv = yargs
+.options({
+a : {
+demand: true,
+alias: 'address',
+describe: 'Address to fetch weather for',
+string: true
 }
-else if (body.status == "OVER_QUERY_LIMIT") {
-console.log("Unable to connect to google service");
-}
+})
+.help()
+.alias('help', 'h')
+.argv;
 
-console.log(JSON.stringify(body, undefined, 2));
-
-console.log("--------------------------------------");
-
-  console.log(`Address: ${body.results[0].formatted_address}`);
-  //console.log(adr); 
-  console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
-  console.log(`Longitude: ${body.results[0].geometry.location.lng}`); 
+geocode.geocodeAddress(argv.address, (errorMessage, results) => {
+  if (errorMessage) {
+    console.log(errorMessage);
+  } else {
+    console.log(JSON.stringify(results, undefined, 2));
+  }
 });
