@@ -1,4 +1,6 @@
 var request = require("request");
+var weather = require("./weather");
+var map = require("./map");
 
 var geocodeAddress = (address, callback) => {
 
@@ -21,24 +23,30 @@ callback("Query limit reached");
 else if (body.status === "OK") {
 
 
-console.log(JSON.stringify(body, undefined, 2));
-
+//console.log(JSON.stringify(body, undefined, 2));
+/*
 console.log("---------------------------------------");
 console.log("---------------------------------------");
-console.log("---------------------------------------");
+console.log("---------------------------------------");*/
 
     callback(undefined, {
         address: body.results[0].formatted_address,
         latitude: body.results[0].geometry.location.lat,
         longitude: body.results[0].geometry.location.lng
       });
+	  
+	
 
 
 
 }
 
+  weather.getWeather(body.results[0].geometry.location.lat, body.results[0].geometry.location.lng);
+
+//  map.mapInit(body.results[0].geometry.location.lat, body.results[0].geometry.location.lng);
 
 });
+
 
 
 }
