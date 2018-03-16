@@ -41,8 +41,8 @@ console.log("---------------------------------------");*/
 
 }
 
-  weather.getWeather(body.results[0].geometry.location.lat, body.results[0].geometry.location.lng);
 
+// google maps below
 //  map.mapInit(body.results[0].geometry.location.lat, body.results[0].geometry.location.lng);
 
 });
