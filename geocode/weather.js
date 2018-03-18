@@ -1,5 +1,6 @@
 var request = require('request');
 
+
    const getWeather = (lng, lat, callback) => {
    
    
@@ -16,12 +17,15 @@ temperature: body.currently.temperature,
 apparentTemperature: body.currently.apparentTemperature
 });
 
-callback(body.currently.time);
-callback(getCurrentTime(body.currently.time));
+callback("Timestamp: " + body.currently.time);
+//callback(getCurrentTime(body.currently.time));
+
+
 
 
 }
 else {
+console.log(response);
 callback("Unable to connect to weather forecast");
 }
    
@@ -37,20 +41,3 @@ callback("Unable to connect to weather forecast");
    getWeather
    
    };
-   
-function getCurrentTime(time) {
-
-var date = new Date(time*1000);
-
-var hours = date.getHours();
-
-var minutes = "0" + date.getMinutes();
-
-var seconds = "0" + date.getSeconds();
-
-var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-
-return(`Current time: ${formattedTime}`);
-
-
-}   

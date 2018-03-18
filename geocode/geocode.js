@@ -7,7 +7,7 @@ var geocodeAddress = (address, callback) => {
 var encodedAddress = encodeURIComponent(address);
 
 request({
-  url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
+  url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyAfm36tXHM20pZAFIRZ-Z4qG207R7vRxlk`,
   json: true
 }, (error, response, body) => {
 
@@ -24,10 +24,14 @@ else if (body.status === "OK") {
 
 
 //console.log(JSON.stringify(body, undefined, 2));
-/*
+
 console.log("---------------------------------------");
 console.log("---------------------------------------");
-console.log("---------------------------------------");*/
+console.log("---------------------------------------");
+
+console.log("City: " + body.results[0].address_components[1].long_name);
+console.log("Latitude: " + body.results[0].geometry.location.lat);
+console.log("Longitude: " + body.results[0].geometry.location.lng);
 
     callback(undefined, {
         address: body.results[0].formatted_address,
@@ -47,7 +51,8 @@ console.log("---------------------------------------");*/
 
 });
 
-
+// geocode api example
+// https://maps.googleapis.com/maps/api/geocode/xml?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=YOUR_API_KEY
 
 }
 

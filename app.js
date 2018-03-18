@@ -33,7 +33,13 @@ It feels like ${weatherResults.apparentTemperature}.`);
 } 
  
   });
-	
+	// maps & geocode api key
+// AIzaSyAfm36tXHM20pZAFIRZ-Z4qG207R7vRxlk
+
+// time zone api key
+// AIzaSyCNR7Xp0x07H9tpugBJ07qY6D-faLpF-O8
+// example
+// https://maps.googleapis.com/maps/api/timezone/json?location=38.908133,-77.047119&timestamp=1458000000&key=AIzaSyCNR7Xp0x07H9tpugBJ07qY6D-faLpF-O8
 	
   }
 });
