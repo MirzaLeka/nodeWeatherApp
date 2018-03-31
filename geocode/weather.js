@@ -1,7 +1,8 @@
 var request = require('request');
+var time = require("./currenttime");
 
 
-   const getWeather = (lng, lat, callback) => {
+   const getWeather = (lat, lng, callback) => {
    
    
    request({
@@ -17,8 +18,8 @@ temperature: body.currently.temperature,
 apparentTemperature: body.currently.apparentTemperature
 });
 
-callback("Timestamp: " + body.currently.time);
-//callback(getCurrentTime(body.currently.time));
+//callback("Timestamp: " + body.currently.time); <- timestamp
+time.getCurrentTime(lat, lng, body.currently.time);
 
 
 

@@ -25,10 +25,6 @@ else if (body.status === "OK") {
 
 //console.log(JSON.stringify(body, undefined, 2));
 
-console.log("---------------------------------------");
-console.log("---------------------------------------");
-console.log("---------------------------------------");
-
 console.log("City: " + body.results[0].address_components[1].long_name);
 console.log("Latitude: " + body.results[0].geometry.location.lat);
 console.log("Longitude: " + body.results[0].geometry.location.lng);

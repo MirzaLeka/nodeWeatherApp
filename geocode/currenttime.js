@@ -8,8 +8,14 @@ url: `https://maps.googleapis.com/maps/api/timezone/json?location=${lat},${lng}&
 json: true
 }, (error, response, body) => {
 
-console.log(`Offset: ${body.rawOffset}`);
-console.log(calculateTime(timeStamp, body.rawOffset));
+ // console.log(JSON.stringify(body, undefined, 2));
+
+  console.log("==========================")
+  //console.log(body.timeZoneId); <- time zone
+  formatTime(body.timeZoneId);
+  
+//console.log(`Offset: ${body.rawOffset}`);
+//console.log(calculateTime(timeStamp, body.rawOffset));
 }
 
 
@@ -18,6 +24,27 @@ console.log(calculateTime(timeStamp, body.rawOffset));
 
 };
 
+var formatTime = (timeZone) => {
+
+  request(
+{
+  url: `http://api.timezonedb.com/v2/get-time-zone?key=9U2CGP6BEFI4&format=json&by=zone&zone=${timeZone}`,
+  json: true
+},
+
+(error, response, body) => {
+
+console.log("Current time: " + body.formatted.substring(11));
+console.log("Current date: " + body.formatted.substring(0,11));
+
+console.log("==========================")
+
+}
+   );
+
+};
+
+// My own calculations. Not very accurate and currently not used
 
 var calculateTime = (timeStamp, rawOffset) => {
 

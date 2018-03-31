@@ -28,8 +28,9 @@ if (errorMessage) {
 console.log(errorMessage);
 }
 else {
-console.log(`Current temperature is ${weatherResults.temperature}.
-It feels like ${weatherResults.apparentTemperature}.`);
+console.log(`Current temperature is ${weatherResults.temperature} K.
+It feels like ${weatherResults.apparentTemperature}.
+Temperature Celsius: ${((weatherResults.temperature-32)*5/9).toFixed(0)}`);
 } 
  
   });
