@@ -1,7 +1,7 @@
 ### **NodeJS Weather Application**
 
-##### This application fetches current latitude and longitude, weather temperature, current date and time for desired address.
-##### Application is built on EcmaScript 6, callbacks, promises as well as number of APIs:
+##### NodeJS Weather Application fetches latitude and longitude, current temperature, current date and time for desired address.
+##### Application is built on NodeJS with EcmaScript 6, as well as number of APIs:
 * ###### Google geocode API 
 * ###### Google time zone API
 * ###### Timezonedb API
