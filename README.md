@@ -7,4 +7,4 @@
 * ###### Dark Sky API
 
 ##### NodeJS Weather Application runs only through terminal. HTML files are currently not in use.
-##### All content is free to use and applicaiton may receive updates in near future.
+##### All content is free to use and applicaiton may receive updates in a near future.
